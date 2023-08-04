@@ -3,12 +3,14 @@ const axios = require('axios');
 const cors = require('cors');
 const { Configuration, OpenAIApi } = require("openai");
 const app = express();
+require('dotenv').config();
+
 app.use(cors())
 const port = 3005; 
 
-
+const apiKey = process.env.OPENAI_API_KEY
 const configuration = new Configuration({
-  apiKey: "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"
+  apiKey: apiKey
 });
 const openai = new OpenAIApi(configuration);
 
